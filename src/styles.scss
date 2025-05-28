@@ -1,1 +1,271 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'scss/reset';
+
+@import 'scss/variables';
+
+html {
+    background-color: $background-color;
+    color: $text-color;   
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container {
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    justify-content: space-around;
+
+    .row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+
+        .element {
+            width: 20px;
+            height: 20px;
+            a {
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border: var(--border-size) solid var(--border-color);
+                    border-radius: var(--border-radius);
+                    object-fit: cover;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+.floating-icon:hover {
+    display: block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+
+    img {
+        width: 25px;
+        height: 25px;
+        opacity: 1;
+        transition: ease-in-out 1s opacity;
+    }
+}
+
+
+.floating-icon {
+    display: block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
+    img {
+        width: 25px;
+        height: 25px;
+        opacity: 0;
+        transition: ease-in-out 1s opacity;
+    }
+}
+
+
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  
+
+.modal-forms {
+    width: 400px;
+    height: 200px;
+}
+.modal-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    .save {
+        width: 190px;
+        height: 40px;
+        cursor: pointer;
+        background-color: #6200ea; /* Color de fondo primario */
+        color: white; /* Color de texto */
+        font-size: 16px; /* Tamaño de fuente */
+        font-weight: 500;
+        padding: 6px 10px; /* Espaciado interno */
+        border-radius: 4px; /* Bordes redondeados */
+        border: none; /* Sin borde */
+        outline: none; /* Quitar el borde al hacer foco */
+        overflow: hidden;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .close {
+        width: 150px;
+        height: 40px;
+        cursor: pointer;
+        background-color: #1d1d1d; /* Color de fondo primario */
+        color: white; /* Color de texto */
+        font-size: 16px; /* Tamaño de fuente */
+        font-weight: 500;
+        padding: 6px 10px; /* Espaciado interno */
+        border-radius: 4px; /* Bordes redondeados */
+        border: none; /* Sin borde */
+        outline: none; /* Quitar el borde al hacer foco */
+        overflow: hidden;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+}
+
+
+.material-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #494949;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+  
+    /* Estilo para el "thumb" del slider */
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: rgb(91, 0, 218); /* Color del "thumb" */
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+  
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: rgb(91, 0, 218); /* Color del "thumb" */
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+  
+    &:hover {
+      background: #5c5c5c; /* Color al pasar el ratón */
+    }
+  
+    &:focus::-webkit-slider-thumb {
+      background: rgb(91, 0, 218); /* Cambio de color al enfocar */
+    }
+  
+    &:focus::-moz-range-thumb {
+      background: rgb(91, 0, 218); /* Cambio de color al enfocar */
+    }
+  }
+  
+  label {
+    font-size: 16px;
+    color: #d8d8d8;
+    margin: 10px 0;
+  }
+
+
+  .custom-radio-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+  }
+  
+  .custom-radio {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    cursor: pointer;
+    color: #d8d8d8;
+    padding-left: 30px;
+    
+    .radio-label {
+        margin: 0;
+        padding: 0;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+  
+    .radio-checkmark {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #5c5c5c;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+  
+    input[type="radio"]:checked + .radio-checkmark {
+      background-color: rgb(91, 0, 218);
+      border-color: rgb(91, 0, 218);
+    }
+  
+    input[type="radio"]:checked + .radio-checkmark::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    &:hover .radio-checkmark {
+        background-color: #494949;
+    }
+  
+    &:focus-within .radio-checkmark {
+      box-shadow: 0 0 0 2px rgba(75, 75, 75, 0.5);
+    }
+  }
